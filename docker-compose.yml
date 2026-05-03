@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_PATH: /app/data/assetops.db
+      PORT: 3000
+      SESSION_COOKIE_SECRET: ${SESSION_COOKIE_SECRET}
+      OPERATOR_WALLETS: ${OPERATOR_WALLETS}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL}
+      SOLANA_RPC_URL: ${SOLANA_RPC_URL}
+    volumes:
+      - assetops-data:/app/data
+
+volumes:
+  assetops-data:
